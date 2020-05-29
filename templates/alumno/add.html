@@ -1,0 +1,37 @@
+<form id='form1' action="" method="post">{% csrf_token %}
+  <div id="formAlumnoContent">
+    {{ form.management_form }}
+
+    {% for f in form %}
+        {{f}}
+        <p></p>
+    {% endfor %}
+  </div>
+
+<button  type="submit">guardar</button>
+
+
+</form>
+<button onclick="addInput()" >agregar</button>
+<br>
+<script>
+    function addInput(){
+        var forms= document.querySelector('#id_form-TOTAL_FORMS')
+        var newinput=document.querySelector('#id_form-0-nombre').cloneNode(true);
+        newinput.name='form-'+forms.value+'-nombre';
+        newinput.id='id_form-'+forms.value+'-nombre';
+        var newinput2=document.querySelector('#id_form-0-legajo').cloneNode(true);
+        newinput2.name='form-'+forms.value+'-legajo';
+        newinput2.id='id_form-'+forms.value+'-legajo';
+        document.querySelector('#formAlumnoContent').appendChild(newinput);
+        document.querySelector('#formAlumnoContent').appendChild(newinput2);
+        //
+        var p=document.createElement("p");
+        document.querySelector('#formAlumnoContent').appendChild(p);
+        forms.value=parseInt(forms.value) + 1;
+    }
+
+</script>
+
+
+

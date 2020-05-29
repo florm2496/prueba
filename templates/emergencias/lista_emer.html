@@ -1,0 +1,38 @@
+{% extends 'emergencias/base_emer.html' %}
+{% load static %}
+
+
+{% block title %}
+    
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="container">
+
+    <h2>Lista de emergencias , escuela-categoria-fecha</h2>
+{% for emer in emergencias  %}
+   <li> {{emer}} - {{emer.fecha_creacion}}</li>
+{% endfor %}
+</div>
+<div >
+    <div style="align-items: center;">
+        {% if emergencias.has_previous %}
+        <div class="clearfix">
+    <a href="?page={{emergencias.previous_page_number}}" class="btn btn-primary">anterior</a>
+        </div>
+        {% endif %}
+        
+    </div>
+    <div>
+        {% if emergencias.has_next %}
+        <div class="clearfix">
+    <a href="?page={{emergencias.next_page_number}}" class="btn btn-primary">siguiente</a>
+        </div>
+        {% endif %}
+        
+    </div>
+</div>
+{% endblock content %}
+

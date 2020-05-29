@@ -1,0 +1,27 @@
+{% extends 'publicacion/base_pub.html' %}
+{% load static %}
+
+
+{% block content %}
+  
+{% include 'includes/header.html' %}
+<form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    
+  {{form.as_p}}
+    <button class="btn btn-dark" type="submit">Guardar</button>
+</form>
+
+{% if user.is_authenticated %}
+  <h1>bienvenido:</h1>
+  {{user}}
+    {% endif %}
+
+
+    {% if user.is_superuser %}
+  <p>eres super usuario</p>
+    {% endif %}
+<a href="{% url  'users_app:user-logout' %}" id="fuente" class="button" >CERRAR SESION</a>
+{% include 'includes/footer.html' %}
+{% endblock content %}
+  
+
