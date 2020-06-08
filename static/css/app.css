@@ -1,3 +1,13 @@
-.body{
-    font-family: 'Oxygen', sans-serif;
+
+
+.bg-dark{
+    position: fixed;
+    z-index: 20;
+    width: 100%;
 }
+
+.header , body{
+    font-family: 'Karla', sans-serif;
+    font-size: large;
+}
+/***   ba{ckground: linear-gradient(to right, rgba(255,255,255,.1), rgba(34,40,49,1)), url(../img/arqui.jpg);**/

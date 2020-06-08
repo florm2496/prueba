@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView ,ListView
+from django.views.generic import CreateView ,ListView,DetailView
 from .models import Emergencia
 from .forms import CrearEmergenciaForm
 from django.urls import reverse_lazy, reverse
@@ -18,7 +18,7 @@ class CrearEmergencia(LoginRequiredMixin , CreateView):
 
      
     def get_success_url(self):
-        return reverse('index')
+        return reverse('home_app:index')
 
 class ListarEmergencia(ListView):
     paginate_by=2
@@ -36,4 +36,10 @@ class ListarEmergencia(ListView):
             return render(request , 'emergencias/lista_emer.html' ,{'emergencias':emergencias})
         else:
             return redirect('users_app:accesodenegado')
+
+    
+class EmerDetailView(DetailView):
+    model = Emergencia
+    template_name = "emergencias/detalle_emer.html"
+
     

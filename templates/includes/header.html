@@ -1,5 +1,70 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light bg-primary " >
+<header>
+  <div class="bg-secondary">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+           
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-center">
+                  <li class="nav-item active">
+                   
+                    <a class="nav-link" href="{% url 'home_app:index' %}">Home<span class="sr-only">(current)</span></a>
+                     
+                    
+                  </li>
+                  <li class="nav-item active">
+                    {% if user.is_superuser %}
+                    <a class="nav-link" href="{% url 'depto_app:deptos' %}">Departamentos</a>
+                      {% endif %}
+                    
+                  </li>
+                  <li class="nav-item active">
+                    {% if not user.is_anonymous and not user.is_superuser %}
+                    <a class="nav-link" href="{% url 'emergencias_app:crear_emer' %}">Informar</a>
+                    {% endif %}
+                    <li class="nav-item active">
+                      {% if user.is_superuser %}
+                      <a class="nav-link" href="{% url 'emergencias_app:lista_emer' %}">Emergencias</a>
+                        {% endif %}
+                     
+                    </li>
+                    <li class="nav-item active">
+                     
+                     {% if user.is_anonymous %}
+                     <a class="nav-link" href="{% url 'emergencias_app:lista_emer' %}">Contacto</a>
+                     {% endif %}
+                       
+                      
+                     
+                     
+                    </li>
+                  
+                  </li>
+                  <li class="nav-item active">
+                   {% if not user.is_anonymous %}
+                   <a class="nav-link" href="{% url 'users_app:user-logout' %}">{{user}} - Salir</a>
+                   {% else %}
+                   <a class="nav-link" href="{% url 'users_app:user-login' %}">Iniciar sesion</a>
+                   {% endif %}
+                  
+                 </li>
+                
+                
+                
+                </ul>
+              </div>
+            </nav>
+      </div>
+  </div>
+
+</header>
+
+
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-primary " >
     <a class="navbar-brand" href="#">Construcciones escolares </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,3 +93,21 @@
       </ul>
     </div>
   </nav>
+  
+    <div class="text-header d-flex align-item-center">
+      <div class="container" id="texto">
+          <div class="row">
+  <div class="col-sm-8">
+      <h2>Construcciones escolares </h2>
+      <p>Encargados de efectuar el relevamiento del estado físico de los locales escolares y del requerimiento de dotación de mobiliario. Participar conjuntamente con la Secretaría de Estado de Educación en la denominación de las obras a realizar y en la asignación de prioridades de las mismas. Elaborar el plan de trabajo del organismo, de conformidad a las directivas emitidas por el Ministerio de Economía en coordinación con la Secretaría de Estado de Educación. Confeccionar la documentación técnica pertinente para la ejecución de obras. Ejecutar obras por administración con o sin participación comunitaria y llamar a licitación para la contratación de obras. Efectuar el mantenimiento de la infraestructura escolar. Realizar estudios de proyecciones a corto, mediano y largo plazo sobre las futuras necesidades de edificios escolares, en función del crecimiento de la población escolar.</p>
+      <a href="" class="btn btn-yo"><span>mas datos</span></a>
+  </div>
+          </div>
+
+      </div>
+  </div>
+  
+  
+  
+  --->
+

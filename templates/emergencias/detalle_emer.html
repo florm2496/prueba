@@ -1,0 +1,20 @@
+{% extends 'emergencias/base_emer.html' %}
+
+
+{% block title %}
+    
+{% endblock title %}
+{% block content %}
+    {% include 'includes/header.html' %}
+ <div class="container-md">
+    <ul>
+        <h1>Detalles</h1>
+   <li>{{emergencia.escuela}}</li>
+   <li>categoria:{{emergencia.categoria}}</li>
+  <li>detalle: {{emergencia.descripcion}}</li>
+   <li>fecha de creacion:{{emergencia.fecha_creacion}}</li>
+    </ul>
+        
+ </div>
+{% endblock content %}
+    

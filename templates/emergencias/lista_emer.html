@@ -13,7 +13,8 @@
 
     <h2>Lista de emergencias , escuela-categoria-fecha</h2>
 {% for emer in emergencias  %}
-   <li> {{emer}} - {{emer.fecha_creacion}}</li>
+ 
+<a href="{% url 'emergencias_app:detalle_emer' pk=emer.pk %}"> {{emer}} - {{emer.fecha_creacion}}</a><br>
 {% endfor %}
 </div>
 <div >
