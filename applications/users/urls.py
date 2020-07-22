@@ -12,7 +12,7 @@ urlpatterns = [
         name='user-register',
     ),
     path(
-        'login/', 
+        '', 
         views.LoginUser.as_view(),
         name='user-login',
     ),

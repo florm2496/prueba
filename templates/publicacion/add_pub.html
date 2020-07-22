@@ -5,13 +5,15 @@
 {% block content %}
   
 {% include 'includes/header.html' %}
-<form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
-    
-  {{form.as_p}}
-    <button class="btn btn-dark" type="submit">Guardar</button>
-</form>
+<div class="container" style="align-items: center; margin-top: 3rem;" >
+  <form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <h3>Subir nuevo plano</h3>
+    {{form.as_p}}
+      <button class="btn btn-dark" type="submit">Guardar</button>
+  </form>
+</div>
 
-{% if user.is_authenticated %}
+<!--{% if user.is_authenticated %}
   <h1>bienvenido:</h1>
   {{user}}
     {% endif %}
@@ -21,7 +23,9 @@
   <p>eres super usuario</p>
     {% endif %}
 <a href="{% url  'users_app:user-logout' %}" id="fuente" class="button" >CERRAR SESION</a>
-{% include 'includes/footer.html' %}
-{% endblock content %}
+--->
+
   
 
+{% include 'includes/footer.html' %}
+{% endblock content %}

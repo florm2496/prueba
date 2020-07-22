@@ -1,12 +1,21 @@
 from django.db import models
 
 from ckeditor.fields import RichTextField
-from django.utils import timezone
+from model_utils.models import TimeStampedModel
+from .managers import PublicacionManager
+from django.conf import settings
 
-class Publicacion(models.Model):
+class Publicacion(TimeStampedModel):
     nombre=models.CharField(max_length=50)
+
     archivo=models.FileField(upload_to='myfolder/')
 
+    usuario=models.ForeignKey(
+    settings.AUTH_USER_MODEL,
+    on_delete=models.CASCADE,
+    related_name='usuario'
+    )
+    objects=PublicacionManager()
     class Meta:
         """Meta definition for Publicacion."""
 
@@ -15,14 +24,6 @@ class Publicacion(models.Model):
 
     def __str__(self):
        return self.nombre
+    
 
-class Avisos(models.Model):
-    detalle=RichTextField()
-    fecha=models.DateTimeField(default=timezone.now())
 
-    class Meta:
-        verbose_name = 'aviso'
-        verbose_name_plural = 'avisos'
-
-    def __str__(self):
-       return self.detalle

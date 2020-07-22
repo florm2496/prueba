@@ -21,24 +21,29 @@
                       {% endif %}
                     
                   </li>
+                  {% if not user.is_anonymous and not user.is_superuser %}
                   <li class="nav-item active">
-                    {% if not user.is_anonymous and not user.is_superuser %}
-                    <a class="nav-link" href="{% url 'emergencias_app:crear_emer' %}">Informar</a>
+                  
+                    <a class="nav-link" href="{% url 'emergencias_app:crear_emer' %}">Informar</a>  </li>
+                  
+                    <a href="nav-link" >Subir un plano</a>
                     {% endif %}
+
+                    {% if user.is_superuser %}
                     <li class="nav-item active">
-                      {% if user.is_superuser %}
                       <a class="nav-link" href="{% url 'emergencias_app:lista_emer' %}">Emergencias</a>
-                        {% endif %}
-                     
                     </li>
+                     
+               
+                      <li class="nav-item active" >
+                      <a class="nav-link" href="{% url 'publicacion_app:lista_pubs' %}">Planos</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item active">
                      
                      {% if user.is_anonymous %}
                      <a class="nav-link" href="{% url 'emergencias_app:lista_emer' %}">Contacto</a>
-                     {% endif %}
-                       
-                      
-                     
+                     {% endif %}      
                      
                     </li>
                   
@@ -48,10 +53,15 @@
                    <a class="nav-link" href="{% url 'users_app:user-logout' %}">{{user}} - Salir</a>
                    {% else %}
                    <a class="nav-link" href="{% url 'users_app:user-login' %}">Iniciar sesion</a>
+                   
                    {% endif %}
                   
-                 </li>
-                
+                 </li >
+                <li class="nav-item active">
+                  {% if user.is_anonymous %}
+                  <a class="nav-link" href="{% url 'users_app:user-register' %}">Registrarse</a>
+                  {% endif %}
+                </li>
                 
                 
                 </ul>

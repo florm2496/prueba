@@ -14,4 +14,4 @@ class Departamento(models.Model):
 
     def __str__(self):
         """Unicode representation of MODELNAME."""
-        return self.nombre + str(self.id)
+        return self.nombre 

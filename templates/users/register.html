@@ -5,66 +5,43 @@
 
 {% include "includes/header.html" %}
 
-<div class="grid-container">
-    <div class="grid-x grid-margin-x align-center">
-        <div class="cell medium-10 large-6" style="margin-top: 2em;">
-            <div class="card" style="width: 100%;">
-                <div class="card-divider">
-                  <h4>Ingrese sus datos</h4>
-                </div>
-                <div class="card-section">
-                    <form class="grid-x grid-margin-x" method="POST" enctype="multipart/form-data">{% csrf_token %}
-                      
-                      {% if form.errors %}
-                          <p>{{form.errors}}</p>
-                      {% endif %}
-                          
-                        <div class="cell large-12">
-                            <label>Email:
-                            {{form.email}}
-                            </label>
-                        </div>
-                        <div class="cell large-6">
-                            <label>Nombres:
-                         {{form.full_name}}
-                            </label>
-                        </div>
-                        <div class="cell medium-6">
-                            <label>Ocupation:
-                            {{form.ocupation}}
-                            </label>
-                        </div>
-                        <div class="cell medium-6">
-                            <label>Genero:
-                           {{form.genero}}
-                            </label>
-                        </div>
-                        <div class="cell medium-6">
-                            <label>Localidad(opcional):
-                           {{form.localidad}}
-                            </label>
-                        </div>
-                        <div class="cell medium-6">
-                            <label>Fecha Nacimiento:
-                          {{form.date_birth}}
-                            </label>
-                        </div>
-                        <div class="cell medium-12">
-                            <label>Contraseña:
-                            {{form.password1}}
-                            </label>
-                        </div>
-                        <div class="cell medium-12">
-                            <label>Repetir Contraseña:
-                           {{form.password2}}
-                            </label>
-                        </div>
-                        <button type="submit" class="cell button">Registrar</button>
-                    </form>
-                </div>
-            </div>
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-    </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">nombre</label>
+          <input type="full_name" class="form-control" id="full_name" name="full_name">
+        </div>
+        <div class="form-group">
+            <label for="ocupacion">ocupacion</label>
+            <input type="ocupacion" class="form-control" id="ocupacion" name="ocupacion">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Genero</label>
+            <select class="form-control" id="genero" name="genero">
+              
+              {% for gen in form.genero%}
+                  <option value="">{{gen}}</option>
+              {% endfor %}
+                  
+            </select>
+          <div class="form-group">
+            <label for="password">contraseña</label>
+            <input type="password" class="form-control" id="password1" name="password1">
+          </div>
+          <div class="form-group">
+            <label for="password">repetir contraseña </label>
+            <input type="password" class="form-control" id="password2" name="password2">
+          </div>
+<!--<input type="checkbox" class="form-check-input" name="is_active" id="is_active">
+          <label class="form-check-label" for="exampleCheck1">Activo</label>-->
+          
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 </div>
-
 {% endblock content %}

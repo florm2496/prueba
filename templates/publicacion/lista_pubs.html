@@ -1,0 +1,22 @@
+{% extends 'publicacion/base_pub.html' %}
+
+
+{% block title %}
+
+
+    
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="container">
+   <h1>PLANOS RECIENTES</h1>
+   {% for pub in publicaciones  %}
+       <li><a href="{{pub.archivo.url}}">{{pub.nombre}} - Creado: {{pub.created}} por {{pub.usuario}}</a></li>
+   {% endfor %}
+       
+
+{% endblock content %}
+
+    
