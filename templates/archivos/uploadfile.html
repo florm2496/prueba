@@ -1,0 +1,18 @@
+{% extends 'archivos/base_archivos.html' %}
+
+{% block title %}
+   
+{% endblock title %}
+<title>Document</title>
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="container m-4">
+    <form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
+
+        {{form.as_p}}
+        <button type="submit">guardar</button>
+    </form>
+</div>
+{% endblock content %}
+
+

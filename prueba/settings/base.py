@@ -44,8 +44,10 @@ INSTALLED_APPS = [
     'applications.users',
     'applications.alumno',
     'applications.emergencias',
+    'applications.archivos',
     'ckeditor',
     'ckeditor_uploader',
+    
 ]
 
 MIDDLEWARE = [

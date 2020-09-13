@@ -1,0 +1,48 @@
+{% extends 'archivos/base_archivos.html' %}
+
+
+
+{% block title %}
+   
+{% endblock title %}
+<title>Document</title>
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="container m-4">
+    
+    <h2>Menu</h2>
+    <ul>
+        <li>
+           <a href=" {% url 'prueba_app:uploadurl' %}"> SUBIR ARCHIVOS </a>
+        </li>
+        <li>
+            <a href="{% url 'prueba_app:listaarchivos' %} ">BUSCAR ARCHIVOS</a>
+
+
+</html>
+
+<div class="container" style="margin: 3rem;">
+    <h1>crear una carpeta</h1>
+   
+        <form action="{% url 'prueba_app:crearcarpetas' %}" method="post"> {% csrf_token %}
+
+       {{form}}
+            <button type="submit">crear</button>
+        </form>
+       </div>
+    
+    <h2>Carpetas</h2>
+    <ul>
+        {% for item in lista  %}
+        
+            <li>
+                <a href="">{{item}}</a>
+            </li>
+            
+        {% endfor %}
+        </ul>
+    
+</div>
+
+{% endblock content %}
+ 

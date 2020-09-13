@@ -26,6 +26,6 @@ urlpatterns = [
     re_path('' , include('applications.alumno.urls')),
     re_path('' , include('applications.users.urls')),
     re_path('' , include('applications.emergencias.urls')),
- 
+    re_path('' , include('applications.archivos.urls')),
     
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
