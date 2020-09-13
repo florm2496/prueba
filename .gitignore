@@ -2,3 +2,11 @@
 
 #
 applications/publicacion/migrations/*
+applications/archivos/migrations/*
+applications/alumno/migrations/*
+applications/prueba1/migrations/*
+applications/home/migrations/*
+applications/subdepto/migrations/*
+applications/seccion/migrations/*
+applications/users/migrations/*
+applications/emergencias/migrations/*
