@@ -4,5 +4,5 @@ from .import views
 app_name='home_app'
 
 urlpatterns = [
-    path('home/' , views.IndexView.as_view() , name='index'),
+    path('index' , views.IndexView.as_view() , name='index'),
 ]

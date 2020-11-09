@@ -7,9 +7,18 @@
 {% include 'includes/header.html' %}
 <div class="container" style="align-items: center; margin-top: 3rem;" >
   <form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
-    <h3>Subir nuevo plano</h3>
-    {{form.as_p}}
-      <button class="btn btn-dark" type="submit">Guardar</button>
+    <h3 class="h3">Subir nuevo archivo</h2>
+    <p>
+      <label for="id_nombre">Nombre</label>
+      <input class="input" type="text" maxlength="30" required name="nombre" id="nombre" placeholder="escriba un nombre">
+
+    </p>
+    <p>
+      <label for="id_archivo">Archivo</label>
+      <input class="input" type="file" name="archivo" id="id_archivo">
+    </p>
+   
+      <button class="btn btn-primary" type="submit">Guardar</button>
   </form>
 </div>
 

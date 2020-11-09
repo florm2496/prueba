@@ -3,14 +3,25 @@
 {% block title %}
    
 {% endblock title %}
-<title>Document</title>
+<title>Archivos</title>
 {% block content %}
 {% include 'includes/header.html' %}
-<div class="container m-4">
+<div class="container" style="align-items: center; margin-top: 3rem;">
     <form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
 
-        {{form.as_p}}
-        <button type="submit">guardar</button>
+        <p>
+            <label for="id_nombre">Nombre</label>
+            <input class="input" type="text" maxlength="30" required name="nombre" id="nombre" placeholder="escriba un nombre">
+      
+          </p>
+          <p>
+            <label for="id_archivo">Archivo</label>
+            <input class="input" type="file" multiple name="archivo" id="id_archivo">
+          </p>
+          <p> {{form.carpeta.label}}
+            {{form.carpeta}}</p>
+         
+        <button type="submit" class="btn btn-primary">guardar</button>
     </form>
 </div>
 {% endblock content %}
